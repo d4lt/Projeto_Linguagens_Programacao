@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block pokemon_container %}
+<div id="pokemon_container">
+        {{pokemon_name}}
+        <!-- foto -->
+        <div id="pokemon_status">
+            <div class="base_status">
+                {{base_stats}}
+            </div>
+            <div class="pokedex_data">
+                {{pokedex_data}}
+            </div>
+        </div>
+</div>
+{% endblock %}
