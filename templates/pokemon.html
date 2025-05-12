@@ -2,14 +2,37 @@
 
 {% block pokemon_container %}
 <div id="pokemon_container">
-        {{pokemon_name}}
-        <!-- foto -->
+        
+        <h1>{{pokemon_name.capitalize()}}</h1>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="pokemon" id="pokemon_image" width="300px">
+
         <div id="pokemon_status">
-            <div class="base_status">
-                {{base_stats}}
+            <div class="base_stats">
+                <h1>Status Base</h1>
+                <hr>
+                {% for stat_key, stat in base_stats.items() %}
+                    <b>{{stat_key.capitalize()}}</b> {{stat}}
+                    <hr>
+                {% endfor %}
             </div>
             <div class="pokedex_data">
-                {{pokedex_data}}
+                <h1>Dados da Pokedex</h1>
+                <hr>
+                {% for pk_data_key, pk_data in pokedex_data.items() %}
+                    <b>{{pk_data_key.capitalize()}}</b> 
+
+                {% if pk_data_key == 'abilities' %}
+                    {% for ability in pk_data %}
+                        {{ability}} <br>
+                    {% endfor %}
+                {% elif pk_data_key == 'types' %}
+                    {{', '.join(pk_data)}}
+                {% else %}
+                    {{pk_data}}
+                {% endif %}
+
+                    <hr>
+                {% endfor %}
             </div>
         </div>
 </div>
