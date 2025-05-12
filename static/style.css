@@ -1,3 +1,24 @@
+@font-face {
+    font-family: fredoka;
+    src: url('./fonts/fredoka/Fredoka-Regular.ttf');
+}
+
+@font-face {
+    font-family: fredoka;
+    src: url(./fonts/fredoka/Fredoka-SemiBold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: caprasimo;
+    src: url(./fonts/caprasimo/Caprasimo-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    font-family: fredoka;
+}
+
 body {
     margin: 0;
     background-color: #434343;
@@ -13,7 +34,10 @@ header {
 }
 
 header > span {
+    font-family: caprasimo;
+    font-size: 96px;
     color: white;
+    text-shadow: 2px 4px 5px black;
 }
 
 main {
@@ -48,8 +72,19 @@ main {
     font-size: 16px;
 }
 
+.base_stats {
+    font-weight: bold;
+}
+
+.base_stats > span,
+.pokedex_data > span {
+    font-size: 40px;
+    font-weight: bold;
+}
+
 #pokemon_name {
     font-size: 40px;
+    font-weight: bold;
     margin: 10px;
     padding: 1px 35px 1px 35px;
     border: 3px solid black;
@@ -67,4 +102,5 @@ main {
 main > h2 {
     font-size: 48px;
     margin-bottom: 10px;
+    font-family: caprasimo;
 }
