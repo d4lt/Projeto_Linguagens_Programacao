@@ -1,7 +1,3 @@
-* {
-    margin: 0
-}
-
 body {
     margin: 0;
     background-color: #434343;
@@ -9,19 +5,26 @@ body {
 
 header {
     margin: 0;
-    background-color: blueviolet;
-    font-size: 40px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    background-color: #5E228C;
+    border-bottom: 10px solid #471A69;
+}
+
+header > span {
+    color: white;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-top: 70px;
+    margin: 70px 100px 70px 100px;
     background-color: white;
     padding: 45px;
+
+    border-radius: 10px;
 }
 
 #pokemon_container {
@@ -41,8 +44,27 @@ main {
     display: flex;
     justify-content: space-between;
     gap: 135px;
+
+    font-size: 16px;
 }
 
-#pokemon_image {
+#pokemon_name {
+    font-size: 40px;
+    margin: 10px;
+    padding: 1px 35px 1px 35px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
 
+.pk_text_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin: 3px 15px 3px 15px;
+}
+
+main > h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
 }

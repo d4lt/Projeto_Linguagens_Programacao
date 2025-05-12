@@ -1,9 +1,9 @@
 """
 TODO: 
      - Translation to ptbr
-     - Typography 
-     - site icon
-     - pokemon image
+     - Typography (done) 
+     - site icon (done)
+     - pokemon image (done)
      - search bar
      - pokemon stats progress bar
      - header

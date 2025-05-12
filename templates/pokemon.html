@@ -1,39 +1,55 @@
-{% extends "base.html" %}
-
-{% block pokemon_container %}
+{% extends "base.html" %} {% block pokemon_container %}
 <div id="pokemon_container">
-        
-        <h1>{{pokemon_name.capitalize()}}</h1>
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="pokemon" id="pokemon_image" width="300px">
+  <span id="pokemon_name">{{pokemon_name.capitalize()}}</span>
+  <img
+    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
+    alt="pokemon"
+    id="pokemon_image"
+    width="300px"
+  />
 
-        <div id="pokemon_status">
-            <div class="base_stats">
-                <h1>Status Base</h1>
-                <hr>
-                {% for stat_key, stat in base_stats.items() %}
-                    <b>{{stat_key.capitalize()}}</b> {{stat}}
-                    <hr>
-                {% endfor %}
-            </div>
-            <div class="pokedex_data">
-                <h1>Dados da Pokedex</h1>
-                <hr>
-                {% for pk_data_key, pk_data in pokedex_data.items() %}
-                    <b>{{pk_data_key.capitalize()}}</b> 
-
-                {% if pk_data_key == 'abilities' %}
-                    {% for ability in pk_data %}
-                        {{ability}} <br>
-                    {% endfor %}
-                {% elif pk_data_key == 'types' %}
-                    {{', '.join(pk_data)}}
-                {% else %}
-                    {{pk_data}}
-                {% endif %}
-
-                    <hr>
-                {% endfor %}
-            </div>
+  <div id="pokemon_status">
+    <div class="base_stats">
+      <span>Status Base</span>
+      <hr />
+      {% for stat_key, stat in base_stats.items() %}
+      <div class="pk_text_container">
+        <div>
+          <b>{{stat_key.capitalize()}}</b>
         </div>
+        <div>{{stat}}</div>
+      </div>
+      <hr />
+
+      {% endfor %}
+    </div>
+    <div class="pokedex_data">
+      <span>Dados da Pokedex</span>
+      <hr />
+      {% for pk_data_key, pk_data in pokedex_data.items() %}
+      <div class="pk_text_container">
+        <div>
+          <b>{{pk_data_key.capitalize()}}</b>
+        </div>
+        <div>
+          {% if pk_data_key == 'abilities' %} 
+            {% for ability in pk_data %}
+              {{ability}} <br />
+            {% endfor %} 
+          {% elif pk_data_key == 'types' %} 
+            {{', '.join(pk_data)}}
+          {% elif pk_data_key == 'height' %} 
+            {{pk_data}} m 
+          {% elif pk_data_key == 'weight' %} 
+          {{pk_data}} kg 
+            {% else %} 
+          {{pk_data}} 
+            {% endif %}
+        </div>
+      </div>
+      <hr />
+      {% endfor %}
+    </div>
+  </div>
 </div>
 {% endblock %}
