@@ -1,3 +1,14 @@
+"""
+TODO: 
+     - Translation to ptbr
+     - Typography 
+     - site icon
+     - pokemon image
+     - search bar
+     - pokemon stats progress bar
+     - header
+"""
+
 from flask import Flask, render_template
 from pokemon_fetch import get_pokemon_data
 

@@ -1,7 +1,4 @@
 import requests
-import json
-
-
 
 def get_pokemon_data(pokemon_name: str) -> list:
     r = requests.get(f'https://pokeapi.co/api/v2/pokemon/{pokemon_name}')
@@ -9,10 +6,12 @@ def get_pokemon_data(pokemon_name: str) -> list:
         data = r.json()
         
         base_stats = {}
+        base_stats['total'] = 0
         stats = data['stats']
         for s in stats:
             name = s['stat']['name']
             base_stats[name] = s['base_stat']
+            base_stats['total'] += s['base_stat']
             
         pokedex_data =  { 
                         'id': data['id'],
@@ -22,7 +21,6 @@ def get_pokemon_data(pokemon_name: str) -> list:
                         'abilities': [ability['ability']['name'] for ability in data['abilities']]
                         }
         
-
         return [base_stats, pokedex_data]
     else:
         raise Exception("Error fetching data from PokeAPI: Wrong Pokemon name")
