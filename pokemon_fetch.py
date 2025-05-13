@@ -21,6 +21,8 @@ def get_pokemon_data(pokemon_name: str) -> list:
                         'abilities': [ability['ability']['name'] for ability in data['abilities']]
                         }
         
-        return [base_stats, pokedex_data]
+        pokemon_image_link = data['sprites']['front_default']
+        
+        return [base_stats, pokedex_data, pokemon_image_link]
     else:
         raise Exception("Error fetching data from PokeAPI: Wrong Pokemon name")
