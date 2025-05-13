@@ -21,7 +21,8 @@
 
 body {
     margin: 0;
-    background-color: #434343;
+    background-image: url("./images/dailymon-bg.png");
+    background-size: contain;
 }
 
 header {
@@ -29,15 +30,37 @@ header {
     padding: 0px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #5E228C;
     border-bottom: 10px solid #471A69;
 }
 
-header > span {
+header > div {
+    display: flex;
+    align-items: center;
+}
+
+header > div > span {
     font-family: caprasimo;
     font-size: 96px;
     color: white;
     text-shadow: 2px 4px 5px black;
+}
+
+#search_bar {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    gap: -10px;
+}
+
+#search_input {
+    padding: 10px 15px 10px 15px;
+    width: 475px;
+    max-width: 475px;
+    background-color: #734893;
+    border-width: 0px;
+    color: white;
 }
 
 main {
@@ -47,8 +70,14 @@ main {
     margin: 70px 100px 70px 100px;
     background-color: white;
     padding: 45px;
-
+    
     border-radius: 10px;
+}
+
+main > h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-family: caprasimo;
 }
 
 #pokemon_container {
@@ -56,18 +85,28 @@ main {
     flex-direction: column;
     width: 100%;
     padding: 10px;
-
+    
     justify-content: center;
     align-items: center;
-
+    
     border: 3px solid #312E2E;
     border-radius: 10px;
 }
 
-#pokemon_status {
+#pokemon_name {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 5px 35px 5px 35px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+#pokemon_information {
     display: flex;
     justify-content: space-between;
     gap: 135px;
+    margin-bottom: 50px;
 
     font-size: 16px;
 }
@@ -82,12 +121,21 @@ main {
     font-weight: bold;
 }
 
-#pokemon_name {
-    font-size: 40px;
-    font-weight: bold;
-    margin: 10px;
-    padding: 1px 35px 1px 35px;
-    border: 3px solid black;
+
+.stat_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stat_bar_container {
+    width: 350px;
+    height: 13px;
+}
+
+.stat_bar {
+    height: 100%;
+    background-color: #FF7F0F;
     border-radius: 10px;
 }
 
@@ -95,12 +143,11 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
     margin: 3px 15px 3px 15px;
+
+    width: 90%;
 }
 
-main > h2 {
-    font-size: 48px;
-    margin-bottom: 10px;
-    font-family: caprasimo;
+.pokedex_data {
+    width: 100%;
 }

@@ -1,26 +1,39 @@
-{% extends "base.html" %} {% block pokemon_container %}
+{% extends "base.html" %}
+{% block pokemon_container %}
 <div id="pokemon_container">
   <span id="pokemon_name">{{pokemon_name.capitalize()}}</span>
   <img
-    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
+    src="{{ pokemon_image_link }}"
     alt="pokemon"
     id="pokemon_image"
     width="300px"
   />
-
-  <div id="pokemon_status">
+  <div id="pokemon_information">
     <div class="base_stats">
       <span>Status Base</span>
       <hr />
       {% for stat_key, stat in base_stats.items() %}
-      <div class="pk_text_container">
-        <div>
-          <b>{{stat_key.capitalize()}}</b>
+      <div class="stat_container">
+        <div class="pk_text_container">
+          <div>
+            <b>{{ stat_key.capitalize() }}</b>
+          </div>
+          <div>
+            {{ stat }}
+          </div>
         </div>
-        <div>{{stat}}</div>
+        {% if stat_key != 'total' %}
+        <div class="stat_bar_container">
+          <div
+            class="stat_bar"
+            style="width:{{ (stat / base_stats['total']) * 200 }}%"
+          ></div>
+        </div>
+        {% else %}
+        <div class="stat_bar_container"></div>
+        {% endif %}
       </div>
       <hr />
-
       {% endfor %}
     </div>
     <div class="pokedex_data">
@@ -29,22 +42,22 @@
       {% for pk_data_key, pk_data in pokedex_data.items() %}
       <div class="pk_text_container">
         <div>
-          <b>{{pk_data_key.capitalize()}}</b>
+          <b>{{ pk_data_key.capitalize() }}</b>
         </div>
         <div>
-          {% if pk_data_key == 'abilities' %} 
-            {% for ability in pk_data %}
-              {{ability}} <br />
-            {% endfor %} 
-          {% elif pk_data_key == 'types' %} 
-            {{', '.join(pk_data)}}
-          {% elif pk_data_key == 'height' %} 
-            {{pk_data}} m 
-          {% elif pk_data_key == 'weight' %} 
-          {{pk_data}} kg 
-            {% else %} 
-          {{pk_data}} 
-            {% endif %}
+          {% if pk_data_key == 'abilities' %}
+          {% for ability in pk_data %}
+          {{ ability }} <br />
+          {% endfor %}
+          {% elif pk_data_key == 'types' %}
+          {{ ', '.join(pk_data) }}
+          {% elif pk_data_key == 'height' %}
+          {{ pk_data }} m
+          {% elif pk_data_key == 'weight' %}
+          {{ pk_data }} kg
+          {% else %}
+          {{ pk_data }}
+          {% endif %}
         </div>
       </div>
       <hr />
