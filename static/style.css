@@ -61,6 +61,15 @@ header > div > span {
     background-color: #734893;
     border-width: 0px;
     color: white;
+    border-radius: 0.5rem;
+    background-image: url('../static/images/search-icon.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px 20px;
+    padding-left: 45px;
+    height: 35px; 
+    font-size: 16px; 
+    box-sizing: border-box; 
 }
 
 main {
