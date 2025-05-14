@@ -26,7 +26,20 @@
         <div class="stat_bar_container">
           <div
             class="stat_bar"
-            style="width:{{ (stat / base_stats['total']) * 200 }}%"
+            style="width:{{ (stat / base_stats['total']) * 200 }}%; background-color:
+            {% if (stat) >= 150 %}
+              #00c2b8;
+            {% elif (stat) >= 120 %}
+              #23cd5e;
+            {% elif (stat) >= 90 %}
+              #a0e515;
+            {% elif (stat) >= 60 %}
+              #ffdd57;
+            {% elif (stat) >= 30 %}
+              #ff7f0f;
+            {% elif (stat) >= 1 %}
+              #f34444;
+            {% endif %}"
           ></div>
         </div>
         {% else %}
